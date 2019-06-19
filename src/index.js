@@ -1,7 +1,7 @@
 import express from 'express';
 
-import React from 'react';
-import {renderToNodeStream} from 'react-dom/server.suspense';
+import React from '../libs/react.development';
+import {renderToNodeStream} from '../libs/server.suspense';
 
 import {movieDetails, movieReviews} from './data';
 
@@ -69,4 +69,7 @@ app.get('/movies/:id/reviews', (req, res) => {
   res.json(reviews);
 });
 
-app.listen(3000);
+app.listen(3001);
+
+// WEBPACK FOOTER //
+// ./src/index.js

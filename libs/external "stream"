@@ -1,0 +1,8 @@
+module.exports = require("stream");
+
+
+//////////////////
+// WEBPACK FOOTER
+// external "stream"
+// module id = 29
+// module chunks = 0

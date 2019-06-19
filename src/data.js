@@ -585,3 +585,8 @@ export const movieReviews = {
     },
   ],
 };
+
+
+
+// WEBPACK FOOTER //
+// ./src/data.js

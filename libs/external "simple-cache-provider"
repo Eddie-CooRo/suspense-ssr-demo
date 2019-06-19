@@ -1,0 +1,8 @@
+module.exports = require("simple-cache-provider");
+
+
+//////////////////
+// WEBPACK FOOTER
+// external "simple-cache-provider"
+// module id = 65
+// module chunks = 0

@@ -1,5 +1,6 @@
-import React, {Fragment} from 'react';
-import {createCache, createResource} from 'simple-cache-provider';
+import React, {Fragment} from '../libs/react.development';
+import {createCache, createResource} from '../libs/simpleCacheProvider';
+import Suspense from './Suspense';
 import {movieDetails} from './data';
 
 function fetchRelative(url) {
@@ -28,14 +29,6 @@ export default function({scale_network_speed = 1}) {
     return response.json();
   });
 
-  function Placeholder(props) {
-    return (
-      <React.Timeout ms={props.delayMs}>
-        {didExpire => (didExpire ? props.fallback : props.children)}
-      </React.Timeout>
-    );
-  }
-
   function App() {
     return <MoviePage id={1} />;
   }
@@ -56,9 +49,9 @@ export default function({scale_network_speed = 1}) {
   function MoviePage(props) {
     MovieReviewsResource.preload(cache, props.id);
     return (
-      <Placeholder delayMs={1000} fallback={<Spinner size="large" />}>
+      <Suspense maxDuration={1000} placeholder={<Spinner size="large" />}>
         <MovieDetails id={props.id} />
-      </Placeholder>
+      </Suspense>
     );
   }
 
@@ -71,9 +64,9 @@ export default function({scale_network_speed = 1}) {
           <h1>{movie.title}</h1>
           <MovieMetrics {...movie} />
         </div>
-        <Placeholder fallback={<Spinner size="large" />}>
+        <Suspense placeholder={<Spinner size="large" />}>
           <MovieReviews id={props.id} />
-        </Placeholder>
+        </Suspense>
       </Fragment>
     );
   }
@@ -166,3 +159,6 @@ export default function({scale_network_speed = 1}) {
 
   return App;
 }
+
+// WEBPACK FOOTER //
+// ./src/App.js

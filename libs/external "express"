@@ -1,0 +1,8 @@
+module.exports = require("express");
+
+
+//////////////////
+// WEBPACK FOOTER
+// external "express"
+// module id = 24
+// module chunks = 0

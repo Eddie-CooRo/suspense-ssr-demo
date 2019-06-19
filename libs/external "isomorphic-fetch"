@@ -1,0 +1,8 @@
+module.exports = require("isomorphic-fetch");
+
+
+//////////////////
+// WEBPACK FOOTER
+// external "isomorphic-fetch"
+// module id = 63
+// module chunks = 0
